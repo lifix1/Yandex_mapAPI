@@ -34,13 +34,13 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.K_PAGEUP:
+        if event.key == pygame.K_PAGEUP:
             params['z'] = params['z'] + 1
             if params['z'] > 21:
                 print('Больше нельзя отдалить')
                 params['z'] = 21
             find()
-        elif event.type == pygame.K_PAGEDOWN:
+        elif event.key == pygame.K_PAGEDOWN:
             params['z'] = params['z'] - 1
             if params['z'] < 0:
                 print('Больше нельзя приблизить')
