@@ -6,7 +6,7 @@ import pygame
 x = input()
 y = input()
 z = input()
-url = f'https://static-maps.yandex.ru/1.x/?ll={x},{y}&z={z}&l=sat'
+url = f'https://static-maps.yandex.ru/1.x/?ll={x},{y}&z={z}&l=map'
 response = requests.get(url)
 
 if not response:
