@@ -4,13 +4,16 @@ import os
 import pygame
 
 running = True
+types = ['map', 'sat', 'sat,skl']
+ind = 0
 params = {
     'll': '28.333762,57.819387',
     'z': 17,
-    'l': 'map'
+    'l': types[ind]
 }
 url = f'https://static-maps.yandex.ru/1.x/'
 map_file = "map.png"
+
 x, y = map(float, params['ll'].split(','))
 pygame.init()
 screen = pygame.display.set_mode((600, 450))
@@ -61,5 +64,11 @@ while running:
             find(x, y)
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
             x += step if x + step <= 180 else x
+            find(x, y)
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_q:
+            if ind + 1 > 2:
+                ind = 0
+            else:
+                ind += 1
             find(x, y)
 pygame.quit()
